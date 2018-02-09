@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		31153DBA1FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31153DB81FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld */; };
+		3116EA1E1FEB2D50001902B7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3116EA1D1FEB2D50001902B7 /* ProfileViewController.swift */; };
+		315539831FC1113400E81B61 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315539821FC1113400E81B61 /* SignUpViewController.swift */; };
 		315909201FBE3C6900474A1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3159091F1FBE3C6900474A1D /* AppDelegate.swift */; };
 		315909221FBE3C6900474A1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315909211FBE3C6900474A1D /* ViewController.swift */; };
 		315909251FBE3C6900474A1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315909231FBE3C6900474A1D /* Main.storyboard */; };
@@ -14,6 +17,11 @@
 		3159092A1FBE3C6900474A1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315909281FBE3C6900474A1D /* LaunchScreen.storyboard */; };
 		315909351FBE3C6900474A1D /* Ambasity_V1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315909341FBE3C6900474A1D /* Ambasity_V1Tests.swift */; };
 		315909401FBE3C6900474A1D /* Ambasity_V1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3159093F1FBE3C6900474A1D /* Ambasity_V1UITests.swift */; };
+		318185CE1FC08BA4007441FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318185CD1FC08BA4007441FC /* LoginViewController.swift */; };
+		31D15ABC1FF4100700766773 /* BrandsFeedTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D15ABB1FF4100700766773 /* BrandsFeedTableCellTableViewCell.swift */; };
+		31FF83EF1FCE3AFF0046DBFA /* BrandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF83EE1FCE3AFF0046DBFA /* BrandsViewController.swift */; };
+		31FF83F11FCE3BB50046DBFA /* BrandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF83F01FCE3BB50046DBFA /* BrandInfoViewController.swift */; };
+		8860219227BFFCA73AE80CE0 /* Pods_Ambasity_V1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FFA4DB0DE1A767FD6E1ADD5 /* Pods_Ambasity_V1.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +42,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2FFA4DB0DE1A767FD6E1ADD5 /* Pods_Ambasity_V1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambasity_V1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		31153DB91FD0BCB000B8B894 /* Ambasity_V1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ambasity_V1.xcdatamodel; sourceTree = "<group>"; };
+		3116EA1D1FEB2D50001902B7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		315539821FC1113400E81B61 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3159091C1FBE3C6900474A1D /* Ambasity V1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ambasity V1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3159091F1FBE3C6900474A1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		315909211FBE3C6900474A1D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +59,12 @@
 		3159093B1FBE3C6900474A1D /* Ambasity V1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ambasity V1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3159093F1FBE3C6900474A1D /* Ambasity_V1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ambasity_V1UITests.swift; sourceTree = "<group>"; };
 		315909411FBE3C6900474A1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		318185CD1FC08BA4007441FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		31D15ABB1FF4100700766773 /* BrandsFeedTableCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsFeedTableCellTableViewCell.swift; sourceTree = "<group>"; };
+		31FF83EE1FCE3AFF0046DBFA /* BrandsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsViewController.swift; sourceTree = "<group>"; };
+		31FF83F01FCE3BB50046DBFA /* BrandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandInfoViewController.swift; sourceTree = "<group>"; };
+		4922EFFA5C0DCFF2510E2C97 /* Pods-Ambasity V1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambasity V1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambasity V1/Pods-Ambasity V1.release.xcconfig"; sourceTree = "<group>"; };
+		9B9BA3CEF88F3BC0DF4D46D1 /* Pods-Ambasity V1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambasity V1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambasity V1/Pods-Ambasity V1.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8860219227BFFCA73AE80CE0 /* Pods_Ambasity_V1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +100,8 @@
 				315909331FBE3C6900474A1D /* Ambasity V1Tests */,
 				3159093E1FBE3C6900474A1D /* Ambasity V1UITests */,
 				3159091D1FBE3C6900474A1D /* Products */,
+				3D96CB5BEF6B892A2C5D9AB8 /* Pods */,
+				8B4167D1661798B5791FCD7C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,7 +120,14 @@
 			children = (
 				3159091F1FBE3C6900474A1D /* AppDelegate.swift */,
 				315909211FBE3C6900474A1D /* ViewController.swift */,
+				318185CD1FC08BA4007441FC /* LoginViewController.swift */,
 				315909231FBE3C6900474A1D /* Main.storyboard */,
+				31D15ABB1FF4100700766773 /* BrandsFeedTableCellTableViewCell.swift */,
+				31FF83F01FCE3BB50046DBFA /* BrandInfoViewController.swift */,
+				31FF83EE1FCE3AFF0046DBFA /* BrandsViewController.swift */,
+				315539821FC1113400E81B61 /* SignUpViewController.swift */,
+				3116EA1D1FEB2D50001902B7 /* ProfileViewController.swift */,
+				31153DB81FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld */,
 				315909261FBE3C6900474A1D /* Assets.xcassets */,
 				315909281FBE3C6900474A1D /* LaunchScreen.storyboard */,
 				3159092B1FBE3C6900474A1D /* Info.plist */,
@@ -125,6 +153,23 @@
 			path = "Ambasity V1UITests";
 			sourceTree = "<group>";
 		};
+		3D96CB5BEF6B892A2C5D9AB8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B9BA3CEF88F3BC0DF4D46D1 /* Pods-Ambasity V1.debug.xcconfig */,
+				4922EFFA5C0DCFF2510E2C97 /* Pods-Ambasity V1.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8B4167D1661798B5791FCD7C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FFA4DB0DE1A767FD6E1ADD5 /* Pods_Ambasity_V1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +177,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 315909441FBE3C6900474A1D /* Build configuration list for PBXNativeTarget "Ambasity V1" */;
 			buildPhases = (
+				E7420D898429D7839E13046C /* [CP] Check Pods Manifest.lock */,
 				315909181FBE3C6900474A1D /* Sources */,
 				315909191FBE3C6900474A1D /* Frameworks */,
 				3159091A1FBE3C6900474A1D /* Resources */,
+				5EC1E14AB9842EC3229EB149 /* [CP] Embed Pods Frameworks */,
+				D4B0D8EFE1C50C701A30AB89 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,12 +302,75 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		5EC1E14AB9842EC3229EB149 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Ambasity V1/Pods-Ambasity V1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ambasity V1/Pods-Ambasity V1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4B0D8EFE1C50C701A30AB89 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Ambasity V1/Pods-Ambasity V1-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7420D898429D7839E13046C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Ambasity V1-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		315909181FBE3C6900474A1D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31FF83F11FCE3BB50046DBFA /* BrandInfoViewController.swift in Sources */,
+				31FF83EF1FCE3AFF0046DBFA /* BrandsViewController.swift in Sources */,
+				31153DBA1FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld in Sources */,
+				318185CE1FC08BA4007441FC /* LoginViewController.swift in Sources */,
 				315909221FBE3C6900474A1D /* ViewController.swift in Sources */,
+				315539831FC1113400E81B61 /* SignUpViewController.swift in Sources */,
+				31D15ABC1FF4100700766773 /* BrandsFeedTableCellTableViewCell.swift in Sources */,
+				3116EA1E1FEB2D50001902B7 /* ProfileViewController.swift in Sources */,
 				315909201FBE3C6900474A1D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -414,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -424,11 +535,13 @@
 		};
 		315909451FBE3C6900474A1D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B9BA3CEF88F3BC0DF4D46D1 /* Pods-Ambasity V1.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S777RS4GYD;
 				INFOPLIST_FILE = "Ambasity V1/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ClosestPath.Ambasity-V1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -439,11 +552,13 @@
 		};
 		315909461FBE3C6900474A1D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4922EFFA5C0DCFF2510E2C97 /* Pods-Ambasity V1.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S777RS4GYD;
 				INFOPLIST_FILE = "Ambasity V1/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ClosestPath.Ambasity-V1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -460,6 +575,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S777RS4GYD;
 				INFOPLIST_FILE = "Ambasity V1Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ClosestPath.Ambasity-V1Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -477,6 +593,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S777RS4GYD;
 				INFOPLIST_FILE = "Ambasity V1Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ClosestPath.Ambasity-V1Tests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -493,11 +610,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S777RS4GYD;
 				INFOPLIST_FILE = "Ambasity V1UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ClosestPath.Ambasity-V1UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = "Ambasity V1";
 			};
 			name = Debug;
@@ -509,11 +627,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S777RS4GYD;
 				INFOPLIST_FILE = "Ambasity V1UITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ClosestPath.Ambasity-V1UITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_TARGET_NAME = "Ambasity V1";
 			};
 			name = Release;
@@ -558,6 +677,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		31153DB81FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				31153DB91FD0BCB000B8B894 /* Ambasity_V1.xcdatamodel */,
+			);
+			currentVersion = 31153DB91FD0BCB000B8B894 /* Ambasity_V1.xcdatamodel */;
+			path = Ambasity_V1.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 315909141FBE3C6900474A1D /* Project object */;
 }

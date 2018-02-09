@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Parse
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, UITextFieldDelegate {
+    
+    @IBAction func signInPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toLogin", sender: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +24,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }
 
