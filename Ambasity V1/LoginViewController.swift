@@ -12,6 +12,9 @@ import Parse
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var logoBackdrop: UIView!
+    
+    
     let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
