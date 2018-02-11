@@ -18,6 +18,8 @@
 		315909351FBE3C6900474A1D /* Ambasity_V1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315909341FBE3C6900474A1D /* Ambasity_V1Tests.swift */; };
 		315909401FBE3C6900474A1D /* Ambasity_V1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3159093F1FBE3C6900474A1D /* Ambasity_V1UITests.swift */; };
 		318185CE1FC08BA4007441FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318185CD1FC08BA4007441FC /* LoginViewController.swift */; };
+		3184AD5A202E93CB00EC7200 /* PasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3184AD59202E93CB00EC7200 /* PasswordRecoveryViewController.swift */; };
+		3184ADBE202FB32400EC7200 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3184ADBD202FB32400EC7200 /* LinksViewController.swift */; };
 		31D15ABC1FF4100700766773 /* BrandsFeedTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D15ABB1FF4100700766773 /* BrandsFeedTableCellTableViewCell.swift */; };
 		31FF83EF1FCE3AFF0046DBFA /* BrandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF83EE1FCE3AFF0046DBFA /* BrandsViewController.swift */; };
 		31FF83F11FCE3BB50046DBFA /* BrandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF83F01FCE3BB50046DBFA /* BrandInfoViewController.swift */; };
@@ -60,6 +62,8 @@
 		3159093F1FBE3C6900474A1D /* Ambasity_V1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ambasity_V1UITests.swift; sourceTree = "<group>"; };
 		315909411FBE3C6900474A1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		318185CD1FC08BA4007441FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		3184AD59202E93CB00EC7200 /* PasswordRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryViewController.swift; sourceTree = "<group>"; };
+		3184ADBD202FB32400EC7200 /* LinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewController.swift; sourceTree = "<group>"; };
 		31D15ABB1FF4100700766773 /* BrandsFeedTableCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsFeedTableCellTableViewCell.swift; sourceTree = "<group>"; };
 		31FF83EE1FCE3AFF0046DBFA /* BrandsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsViewController.swift; sourceTree = "<group>"; };
 		31FF83F01FCE3BB50046DBFA /* BrandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandInfoViewController.swift; sourceTree = "<group>"; };
@@ -120,13 +124,15 @@
 			children = (
 				3159091F1FBE3C6900474A1D /* AppDelegate.swift */,
 				315909211FBE3C6900474A1D /* ViewController.swift */,
-				318185CD1FC08BA4007441FC /* LoginViewController.swift */,
-				315909231FBE3C6900474A1D /* Main.storyboard */,
-				31D15ABB1FF4100700766773 /* BrandsFeedTableCellTableViewCell.swift */,
-				31FF83F01FCE3BB50046DBFA /* BrandInfoViewController.swift */,
 				31FF83EE1FCE3AFF0046DBFA /* BrandsViewController.swift */,
-				315539821FC1113400E81B61 /* SignUpViewController.swift */,
+				31FF83F01FCE3BB50046DBFA /* BrandInfoViewController.swift */,
+				31D15ABB1FF4100700766773 /* BrandsFeedTableCellTableViewCell.swift */,
+				315909231FBE3C6900474A1D /* Main.storyboard */,
+				3184ADBD202FB32400EC7200 /* LinksViewController.swift */,
+				318185CD1FC08BA4007441FC /* LoginViewController.swift */,
+				3184AD59202E93CB00EC7200 /* PasswordRecoveryViewController.swift */,
 				3116EA1D1FEB2D50001902B7 /* ProfileViewController.swift */,
+				315539821FC1113400E81B61 /* SignUpViewController.swift */,
 				31153DB81FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld */,
 				315909261FBE3C6900474A1D /* Assets.xcassets */,
 				315909281FBE3C6900474A1D /* LaunchScreen.storyboard */,
@@ -363,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3184ADBE202FB32400EC7200 /* LinksViewController.swift in Sources */,
 				31FF83F11FCE3BB50046DBFA /* BrandInfoViewController.swift in Sources */,
 				31FF83EF1FCE3AFF0046DBFA /* BrandsViewController.swift in Sources */,
 				31153DBA1FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld in Sources */,
@@ -371,6 +378,7 @@
 				315539831FC1113400E81B61 /* SignUpViewController.swift in Sources */,
 				31D15ABC1FF4100700766773 /* BrandsFeedTableCellTableViewCell.swift in Sources */,
 				3116EA1E1FEB2D50001902B7 /* ProfileViewController.swift in Sources */,
+				3184AD5A202E93CB00EC7200 /* PasswordRecoveryViewController.swift in Sources */,
 				315909201FBE3C6900474A1D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

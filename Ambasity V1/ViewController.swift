@@ -12,8 +12,13 @@ import Parse
 class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signInPressed(_ sender: Any) {
-        performSegue(withIdentifier: "toLogin", sender: nil)
+        performSegue(withIdentifier: "toSignIn", sender: nil)
     }
+    
+    @IBAction func signUpPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toSignUp", sender: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

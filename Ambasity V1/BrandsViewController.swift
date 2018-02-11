@@ -15,6 +15,7 @@ class BrandsViewController: UIViewController, UITableViewDataSource, UITableView
     var brandNames = [String]()
     var brandDescriptions = [String]()
     var brandImageData = [PFFile]()
+    var logoType : String!
 
     @IBOutlet var table: UITableView!
     
@@ -51,6 +52,14 @@ class BrandsViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
+            logoType = "iPadLogo"
+        }
+        else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
+            logoType = "iPadLogo"
+        }
+        
         let query = PFQuery(className: "Brand")
         query.findObjectsInBackground(block: { (objects, error) in
             if error == nil {
@@ -64,7 +73,7 @@ class BrandsViewController: UIViewController, UITableViewDataSource, UITableView
                         if let brandDescription = brand["Description"] as? String {
                             self.brandDescriptions.append(brandDescription)
                         }
-                        if let brandImageData = brand["Image"] as? PFFile {
+                        if let brandImageData = brand[self.logoType] as? PFFile {
                             self.brandImageData.append(brandImageData)
                         }
                         self.table.reloadData()
