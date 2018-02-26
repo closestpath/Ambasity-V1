@@ -17,7 +17,10 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     
-    var brandsRepresenting = [String]()
+    var brandIds = [String]()
+    var brandNames = [String]()
+    var brandLogos = [UIImage]()
+    var logoType : String!
     
     
     @IBAction func logoutButtonPressed(_ sender: Any) {
@@ -30,6 +33,14 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        // Determining if Ambasity is being run on an iPad or iPhone, which will determine the image download size.
+        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
+            logoType = "iPadLogo"
+        }
+        else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
+            logoType = "iPhoneLogo"
+        }
         
         let currentUser = PFUser.current()
         // Checking to make sure a username exists.
@@ -64,6 +75,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                     self.displayAlert(title: "Error", message: error!.localizedDescription)
                 }
             })
+            
         }
         
         // Rounds the edges to the profile image view.
@@ -133,24 +145,29 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         query.findObjectsInBackground { (objects, error) in
             if error == nil {
                 // Clears the old data.
-                self.brandsRepresenting.removeAll()
+                self.brandIds.removeAll()
                 
                 // Making sure objects are found.
                 if let objects = objects {
                     
                     for object in objects {
-                        // Making sure each object has an objectId.
-                        if let objectId = object.objectId {
-                            // Adding each objectId to our array.
-                            self.brandsRepresenting.append(objectId)
-                        }
-                    }
-                    
-                    // Queries the specific brand information once the previous query has finished.
-                    if self.brandsRepresenting.count == objects.count {
                         
-                        self.retrieveBrandData()
-                        print("hello")
+                        // Making sure each object is a brand object.
+                        if let brand = object["Brand"] as? PFObject {
+                            // Making sure each brand has an id.
+                            if let brandId = brand.objectId {
+                                
+                                self.brandIds.append(brandId)
+                                
+                            }
+                        }
+                        
+                    }
+                    print(self.brandIds.count)
+                    print(objects.count)
+                    if self.brandIds.count == objects.count {
+                        
+                        self.retrieveBrandData(self.brandIds)
                     }
                 }
             } else {
@@ -160,9 +177,58 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         }
     }
     
-    func retrieveBrandData () {
-        //
+    func retrieveBrandData (_ brandIds: [String]) {
+        
+        // Defining our inner query to query the specific brand information.
         let query = PFQuery(className: "Brand")
+        query.whereKey("objectId", containedIn: brandIds)
+        
+        // Executing our innery query.
+        query.findObjectsInBackground(block: { (objects, error) in
+            
+            if error == nil {
+                // Making sure objects are found.
+                if let objects = objects {
+                    
+                    for object in objects {
+                        // Making sure the brand has a name.
+                        if let brandName = object["Name"] as? String {
+                            // Adding that name to our brands list.
+                            self.brandNames.append(brandName)
+                        }
+                        // Making sure the brand has a logo file.
+                        if let logoImageFile = object[self.logoType] as? PFFile {
+                            // Downloading the file.
+                            logoImageFile.getDataInBackground(block: { (data, error) in
+                                if error == nil {
+                                    
+                                    if let imageData = data {
+                                        // Making sure the image data can be converted into a UIImage.
+                                        if let image = UIImage(data: imageData) {
+                                            // Displaying the downloaded profile image.
+                                            self.brandLogos.append(image)
+                                        }
+                                    }
+                                    
+                                } else {
+                                    // Displays any encountered errors.
+                                    self.displayAlert(title: "Error", message: error!.localizedDescription)
+                                }
+                            })
+                        }
+                    }
+                    print(self.brandNames.count)
+                    print(self.brandLogos.count)
+                    print(objects.count)
+                    if self.brandNames.count == objects.count && self.brandNames.count == self.brandLogos.count {
+                        print("hello")
+                    }
+                }
+            } else {
+                // Displays any encountered errors.
+                self.displayAlert(title: "Error", message: error!.localizedDescription)
+            }
+        })
         
     }
     

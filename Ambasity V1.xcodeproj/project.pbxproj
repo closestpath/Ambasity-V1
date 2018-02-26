@@ -17,6 +17,8 @@
 		3159092A1FBE3C6900474A1D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 315909281FBE3C6900474A1D /* LaunchScreen.storyboard */; };
 		315909351FBE3C6900474A1D /* Ambasity_V1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315909341FBE3C6900474A1D /* Ambasity_V1Tests.swift */; };
 		315909401FBE3C6900474A1D /* Ambasity_V1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3159093F1FBE3C6900474A1D /* Ambasity_V1UITests.swift */; };
+		316A1709203A54EF005EBC64 /* SubmitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A1708203A54EF005EBC64 /* SubmitButton.swift */; };
+		316A170B203A57D4005EBC64 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A170A203A57D4005EBC64 /* DesignableTextField.swift */; };
 		318185CE1FC08BA4007441FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318185CD1FC08BA4007441FC /* LoginViewController.swift */; };
 		3184AD5A202E93CB00EC7200 /* PasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3184AD59202E93CB00EC7200 /* PasswordRecoveryViewController.swift */; };
 		3184ADBE202FB32400EC7200 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3184ADBD202FB32400EC7200 /* LinksViewController.swift */; };
@@ -61,6 +63,8 @@
 		3159093B1FBE3C6900474A1D /* Ambasity V1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ambasity V1UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3159093F1FBE3C6900474A1D /* Ambasity_V1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ambasity_V1UITests.swift; sourceTree = "<group>"; };
 		315909411FBE3C6900474A1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		316A1708203A54EF005EBC64 /* SubmitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButton.swift; sourceTree = "<group>"; };
+		316A170A203A57D4005EBC64 /* DesignableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		318185CD1FC08BA4007441FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3184AD59202E93CB00EC7200 /* PasswordRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryViewController.swift; sourceTree = "<group>"; };
 		3184ADBD202FB32400EC7200 /* LinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,7 @@
 		3159091E1FBE3C6900474A1D /* Ambasity V1 */ = {
 			isa = PBXGroup;
 			children = (
+				316A1707203A54B0005EBC64 /* IBDesignables */,
 				3159091F1FBE3C6900474A1D /* AppDelegate.swift */,
 				315909211FBE3C6900474A1D /* ViewController.swift */,
 				31FF83EE1FCE3AFF0046DBFA /* BrandsViewController.swift */,
@@ -157,6 +162,15 @@
 				315909411FBE3C6900474A1D /* Info.plist */,
 			);
 			path = "Ambasity V1UITests";
+			sourceTree = "<group>";
+		};
+		316A1707203A54B0005EBC64 /* IBDesignables */ = {
+			isa = PBXGroup;
+			children = (
+				316A1708203A54EF005EBC64 /* SubmitButton.swift */,
+				316A170A203A57D4005EBC64 /* DesignableTextField.swift */,
+			);
+			path = IBDesignables;
 			sourceTree = "<group>";
 		};
 		3D96CB5BEF6B892A2C5D9AB8 /* Pods */ = {
@@ -370,6 +384,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3184ADBE202FB32400EC7200 /* LinksViewController.swift in Sources */,
+				316A1709203A54EF005EBC64 /* SubmitButton.swift in Sources */,
 				31FF83F11FCE3BB50046DBFA /* BrandInfoViewController.swift in Sources */,
 				31FF83EF1FCE3AFF0046DBFA /* BrandsViewController.swift in Sources */,
 				31153DBA1FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld in Sources */,
@@ -380,6 +395,7 @@
 				3116EA1E1FEB2D50001902B7 /* ProfileViewController.swift in Sources */,
 				3184AD5A202E93CB00EC7200 /* PasswordRecoveryViewController.swift in Sources */,
 				315909201FBE3C6900474A1D /* AppDelegate.swift in Sources */,
+				316A170B203A57D4005EBC64 /* DesignableTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

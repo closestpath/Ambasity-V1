@@ -57,7 +57,7 @@ class BrandsViewController: UIViewController, UITableViewDataSource, UITableView
             logoType = "iPadLogo"
         }
         else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
-            logoType = "iPadLogo"
+            logoType = "iPhoneLogo"
         }
         
         let query = PFQuery(className: "Brand")

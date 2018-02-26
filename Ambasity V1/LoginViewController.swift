@@ -12,12 +12,15 @@ import Parse
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var logoBackdrop: UIView!
-    
-    
     let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
+    
+    @IBOutlet var scrollView: UIScrollView!
+    
+    var activeField: UITextField!
+    
     
     func displayAlert (title:String, message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -53,43 +56,111 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        // Setting up the activity indicator that signals the app is looking for a logged-in user.
+        // Defining the center point.
         activityIndicator.center.x = self.view.center.x
-        activityIndicator.center.y = self.view.center.y + 250
+        activityIndicator.center.y = self.view.center.y
         activityIndicator.hidesWhenStopped = true
+        
+        // Defining the color/style.
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        
+        // Adding the activity indicator to the UIView.
         view.addSubview(activityIndicator)
+        // Starts animating.
         activityIndicator.startAnimating()
+        // Ignores user interaction events until the app has stopped looking for a logged-in user.
         UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        // Defining the tool bar to contain a button to exit the keyboard.
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        // Defining the button to exit the keyboard.
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target: self, action: #selector(self.doneClicked))
+        // Defining the spacer to push the exit button to the right.
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: self, action: nil)
+        // Adding the exit button and flexible space to the tool bar.
+        toolBar.setItems([flexibleSpace, doneButton], animated: true)
+        
+        // Adding to the tool bar to the two text fields' keyboards.
+        usernameField.inputAccessoryView = toolBar
+        passwordField.inputAccessoryView = toolBar
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        // If the user is currently logged in, redirect them to the application home page.
         if PFUser.current() != nil {
+            // Stops ignoring interaction events.
             UIApplication.shared.endIgnoringInteractionEvents()
+            // Segues the user to the home page.
             performSegue(withIdentifier: "toApp", sender: self)
         }
+        // If the user is not currently logged in.
         else {
+            // Stops ignoring interaction events.
             UIApplication.shared.endIgnoringInteractionEvents()
+            // Stops the activity indicator.
             activityIndicator.stopAnimating()
         }
+        
+        // Sets notifications for when the keyboard is in use.
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        // Resets notification center if the view is exited.
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    @objc func keyboardDidShow(_ notification: Notification) {
+        
+        // Ensures there is data in the notification.
+        if let info = notification.userInfo {
+            // Ensures the keyboard size is contained in that data.
+            if let kbSize = (info[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.size {
+                // Scrolls up to make any text views hidden by the keyboard visible.
+                let contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0)
+                self.scrollView.contentInset = contentInsets
+                self.scrollView.scrollIndicatorInsets = contentInsets
+                
+            } else {
+                // Returns an error if the keyboard size is not contained in the notification data.
+                print("Error: No keyboard size given in the notification information.")
+            }
+            
+        } else {
+            // Returns an error if there is no data in the notification.
+            print("Error: No information given in the notification.")
+        }
+        
+    }
+    
+    @objc func keyboardDidHide(_ notification: Notification) {
+        
+        // Resets the scroll view position when the keyboard has been dismissed.
+        let contentInsets = UIEdgeInsets.zero
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        
+    }
+    
+    @objc
+    func doneClicked() {
         self.view.endEditing(true)
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        activeField = textField
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        activeField = nil
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
