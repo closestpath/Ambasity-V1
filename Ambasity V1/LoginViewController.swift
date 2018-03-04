@@ -21,7 +21,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     var activeField: UITextField!
     
-    
     func displayAlert (title:String, message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action) in
