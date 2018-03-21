@@ -11,119 +11,103 @@ import Parse
 
 class BrandInfoViewController: UIViewController {
     
-    @IBOutlet var brandNameLabel: UILabel!
-    @IBOutlet var brandDescriptionLabel: UILabel!
-    @IBOutlet var brandLogoView: UIImageView!
-    @IBOutlet var representLabel: UILabel!
-    @IBOutlet var representSwitch: UISwitch!
-    @IBOutlet var activeSinceLabel: UILabel!
-    @IBOutlet var numAmbassadorsLabel: UILabel!
-    @IBOutlet var numDownloadsLabel: UILabel!
-    
-    var brandName: String = ""
-    var brandId: String = ""
     let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
     
-    @IBAction func representIsSwitched(_ sender: Any) {
-        if representSwitch.isOn {
-            let represent = PFObject(className: "Representing")
-            represent["Ambassador"] = PFUser.current()
-            represent["Brand"] = brandId
-            represent.saveInBackground()
-        }
-        else {
-            let query = PFQuery(className: "Representing")
-            query.whereKey("Ambassador", equalTo: PFUser.current()!)
-            query.whereKey("Brand", equalTo: brandId)
-            query.findObjectsInBackground(block: { (objects, error) in
-                if let objects = objects {
-                    for object in objects {
-                        object.deleteInBackground()
-                    }
-                }
-            })
+    @IBOutlet var coverImage: UIImageView!
+    @IBOutlet var brandNameLabel: UILabel!
+    @IBOutlet var remainingDownloadsLabel: UILabel!
+    @IBOutlet var brandDescriptionLabel: UILabel!
+    @IBOutlet var representingSwitch: UISwitch!
+    
+    var brandName: String!
+    var brandDescription: String!
+    var brandId: String!
+    var isRepresenting: Bool = false
+    
+    @IBAction func representingSwitched(_ sender: Any) {
+        if isRepresenting {
+            displayAlert(title: "Please Confirm", message: "You have selected to stop representing " + brandName + ". Do you wish to proceed?")
+            isRepresenting = false
+        } else {
+            displayAlert(title: "Please Confirm", message: "You have selected to represent " + brandName + ". Do you wish to proceed?")
+            isRepresenting = true
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        navigationItem.largeTitleDisplayMode = .never
+        
+        // Do any additional setup after loading the view.
+        
+        // Setting up the activity indicator that signals the app is looking for a logged-in user.
+        // Defining the center point.
+        activityIndicator.center.x = self.view.center.x
+        activityIndicator.center.y = self.view.center.y
+        activityIndicator.hidesWhenStopped = true
+        
+        // Defining the color/style.
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        
+        // Adding the activity indicator to the UIView.
+        view.addSubview(activityIndicator)
+        // Starts animating.
+        activityIndicator.startAnimating()
+        // Ignores user interaction events until the app has stopped looking for a logged-in user.
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        
         self.navigationItem.title = brandName
         brandNameLabel.text = brandName
-        representLabel.text = "Represent " + brandName
-        numAmbassadorsLabel.text = "0"
-        numDownloadsLabel.text = "0"
-        let query = PFQuery(className: "Brand")
-        query.whereKey("Name", equalTo: brandName)
+        brandDescriptionLabel.text = brandDescription
+        
+        // Querying the brand information.
+        // Defining the query parameters.
+        let query = PFQuery(className: "Representing")
+        query.whereKey("Brand", equalTo: PFObject(withoutDataWithClassName:"Brand", objectId:brandId))
+        
         query.findObjectsInBackground { (objects, error) in
-            if let brands = objects {
-                for brand in brands {
-                    if let objectId = brand.objectId {
-                        self.brandId = objectId
-                    }
-                    if let brandDescription = brand["Description"] as? String {
-                        self.brandDescriptionLabel.text = brandDescription
-                    }
-                    if let logoData = brand["Image"] as? PFFile {
-                        logoData.getDataInBackground(block: { (data, error) in
-                            if let imageData = data {
-                                if let logo = UIImage(data: imageData) {
-                                    self.brandLogoView.image = logo
-                                }
+            if let representations = objects {
+                
+                if representations.count == 0 {
+                    
+                    // If no objects are found.
+                    self.isRepresenting = false
+                    self.representingSwitch.isOn = false
+                    
+                } else {
+                    for representation in representations {
+                        if let ambassador = representation["Ambassador"] as? PFObject {
+                            if ambassador.objectId == PFUser.current()!.objectId {
+                                self.isRepresenting = true
+                                self.representingSwitch.isOn = true
+                            } else {
+                                self.isRepresenting = false
+                                self.representingSwitch.isOn = false
                             }
-                        })
-                    }
-                    if let activeDate = brand.createdAt {
-                        let formatter = DateFormatter()
-                        formatter.dateFormat = "MMMM yyyy"
-                        let activeDateFormatted = formatter.string(from: activeDate)
-                        self.activeSinceLabel.text = "Active Member Since "  + activeDateFormatted
+                        }
                     }
                 }
-                let query = PFQuery(className: "Representing")
-                query.whereKey("Brand", equalTo: self.brandId)
-                query.whereKey("Ambassador", equalTo: PFUser.current()!)
-                query.findObjectsInBackground(block: { (objects, error) in
-                    if !(objects!.isEmpty) {
-                        self.representSwitch.isOn = true
-                    }
-                    else {
-                        self.representSwitch.isOn = false
-                    }
-                    
-                })
+                
+                // Stops ignoring interaction events.
+                UIApplication.shared.endIgnoringInteractionEvents()
+                // Stops the activity indicator.
+                self.activityIndicator.stopAnimating()
+                
             }
         }
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-    @objc func startSpinner() {
-        activityIndicator.center = self.view.center
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        view.addSubview(activityIndicator)
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
+    func displayAlert (title:String, message:String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: { (action) in
+            
+        }))
+        alert.addAction(UIAlertAction(title: "No", style: .default, handler: { (action) in
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
-    
-    @objc func stopSpinner() {
-        activityIndicator.stopAnimating()
-        UIApplication.shared.endIgnoringInteractionEvents()
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

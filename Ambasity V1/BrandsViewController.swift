@@ -10,33 +10,34 @@ import UIKit
 import Parse
 import CoreData
 
-class BrandsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+class BrandsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate {
+    
+    @IBOutlet var table: UITableView!
+    
     var brandNames = [String]()
     var brandDescriptions = [String]()
+    var brandIds = [String]();
     var brandImageData = [PFFile]()
-    var logoType : String!
-
-    @IBOutlet var table: UITableView!
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return brandNames.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 75.0
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! BrandsFeedTableCellTableViewCell
-        brandImageData[indexPath.row].getDataInBackground { (data, error) in
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainFeedTableViewCell
+        cell.nameLabel.text = brandNames[indexPath.row]
+        cell.descriptionLabel.text = brandDescriptions[indexPath.row]
+        /*brandImageData[indexPath.section].getDataInBackground { (data, error) in
             if let imageData = data {
                 if let logo = UIImage(data: imageData) {
-                    cell.brandLogo.image = logo
+                    //cell.icon.image = logo
                 }
             }
-        }
-        cell.brandDescription.text = brandDescriptions[indexPath.row]
+        }*/
         return cell
     }
     
@@ -44,21 +45,20 @@ class BrandsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "toBrandInfo", sender: indexPath.row)
     }
-    
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        return UIView()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
         
-        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
-            logoType = "iPadLogo"
-        }
-        else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
-            logoType = "iPhoneLogo"
-        }
+        /* Setup the Search Controller
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.searchBar.placeholder = "Search Apps"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true*/
         
         let query = PFQuery(className: "Brand")
         query.findObjectsInBackground(block: { (objects, error) in
@@ -73,7 +73,10 @@ class BrandsViewController: UIViewController, UITableViewDataSource, UITableView
                         if let brandDescription = brand["Description"] as? String {
                             self.brandDescriptions.append(brandDescription)
                         }
-                        if let brandImageData = brand[self.logoType] as? PFFile {
+                        if let brandId = brand.objectId {
+                            self.brandIds.append(brandId)
+                        }
+                        if let brandImageData = brand["iPhoneLogo"] as? PFFile {
                             self.brandImageData.append(brandImageData)
                         }
                         self.table.reloadData()
@@ -85,22 +88,16 @@ class BrandsViewController: UIViewController, UITableViewDataSource, UITableView
             }
         })
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toBrandInfo" {
             let brandInfoViewController = segue.destination as! BrandInfoViewController
             if let selectedBrand = sender as? Int {
                 brandInfoViewController.brandName = brandNames[selectedBrand]
+                brandInfoViewController.brandDescription = brandDescriptions[selectedBrand]
+                brandInfoViewController.brandId = brandIds[selectedBrand]
             }
         }
-    }
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
     }
     
     func displayAlert (title:String, message:String) {
@@ -109,5 +106,12 @@ class BrandsViewController: UIViewController, UITableViewDataSource, UITableView
             self.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
+    }
+}
+
+extension BrandsViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        // TODO
     }
 }

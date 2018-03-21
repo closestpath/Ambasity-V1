@@ -18,17 +18,15 @@ class LinksViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Setting a larger navigation title.
+        navigationController?.navigationBar.prefersLargeTitles = true
 
         // Updating the table once the view has initially loaded.
         updateTable()
         // Adding the refreshing spinner.
         refresher.addTarget(self, action: #selector(LinksViewController.updateTable), for: UIControlEvents.valueChanged)
         tableView.addSubview(refresher)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -96,26 +94,11 @@ class LinksViewController: UIViewController, UITableViewDataSource, UITableViewD
                         self.tableView.reloadData()
                         self.refresher.endRefreshing()
                     }
-                    
                 }
             } else {
                 // Displays any errors.
                 self.displayAlert(title: "Error", message: error!.localizedDescription)
-                
             }
-            
-            
         }
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

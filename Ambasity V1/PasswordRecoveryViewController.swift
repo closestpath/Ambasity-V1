@@ -15,27 +15,41 @@ class PasswordRecoveryViewController: UIViewController {
     @IBOutlet var emailField: UITextField!
     
     @IBOutlet var passwordRecoveryLabel: UILabel!
+    @IBOutlet var forgotPasswordButton: SubmitButton!
     
     @IBOutlet var scrollView: UIScrollView!
     var activeField: UITextField!
+    var resetComplete: Bool = false
     
     @IBAction func resetPassword(_ sender: Any) {
-        let successMessage: String = "Check your email for further instructions on resetting your password."
-        
-        if usernameField.text!.isEmpty == false && emailField.text!.isEmpty == false {
-            PFUser.requestPasswordResetForEmail(inBackground: emailField.text!, block: { (success, error) in
-                if error != nil {
-                    self.displayAlert(title: "Login Error", message: (error?.localizedDescription)!)
-                } else {
-                    self.displayAlert(title: "Success!", message: successMessage)
-                }
-            })
+        if resetComplete {
+            performSegue(withIdentifier: "toSignIn", sender: nil)
+            usernameField.isHidden = false
+            emailField.isHidden = false
+            forgotPasswordButton.setTitle("Reset Password", for: UIControlState.normal)
+            resetComplete = false
         } else {
-            if (usernameField.text!.isEmpty) {
-                displayAlert(title: "Form Incomplete", message: "Please input your username.")
-            }
-            else {
-                displayAlert(title: "Form Incomplete", message: "Please input your email.")
+            let successMessage: String = "Check your email for further instructions on resetting your password."
+            
+            if usernameField.text!.isEmpty == false && emailField.text!.isEmpty == false {
+                PFUser.requestPasswordResetForEmail(inBackground: emailField.text!, block: { (success, error) in
+                    if error != nil {
+                        self.displayAlert(title: "Login Error", message: (error?.localizedDescription)!)
+                    } else {
+                        self.displayAlert(title: "Success!", message: successMessage)
+                        self.usernameField.isHidden = true
+                        self.emailField.isHidden = true
+                        self.forgotPasswordButton.setTitle("Return To Home", for: UIControlState.normal)
+                        self.resetComplete = true
+                    }
+                })
+            } else {
+                if (usernameField.text!.isEmpty) {
+                    displayAlert(title: "Form Incomplete", message: "Please input your username.")
+                }
+                else {
+                    displayAlert(title: "Form Incomplete", message: "Please input your email.")
+                }
             }
         }
     }
@@ -43,7 +57,7 @@ class PasswordRecoveryViewController: UIViewController {
     func displayAlert (title:String, message:String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-            
+            self.dismiss(animated: true, completion: nil)
         }))
         self.present(alert, animated: true, completion: nil)
     }
