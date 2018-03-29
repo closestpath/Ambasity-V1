@@ -10,6 +10,13 @@
 		31153DBA1FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31153DB81FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld */; };
 		3116EA1E1FEB2D50001902B7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3116EA1D1FEB2D50001902B7 /* ProfileViewController.swift */; };
 		314C3D8620609E8A00304133 /* MainFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C3D8520609E8A00304133 /* MainFeedTableViewCell.swift */; };
+		314C3D8A2067186F00304133 /* SupportViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314C3D892067186F00304133 /* SupportViewController.storyboard */; };
+		314C3D8C2067187C00304133 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C3D8B2067187C00304133 /* SupportViewController.swift */; };
+		314C3D8E2067DB6000304133 /* PreOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314C3D8D2067DB6000304133 /* PreOnboarding.storyboard */; };
+		314C3D902067DFE200304133 /* PreOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C3D8F2067DFE200304133 /* PreOnboardingViewController.swift */; };
+		314C3D922068028200304133 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314C3D912068028200304133 /* Onboarding.storyboard */; };
+		314C3DB2206D44D400304133 /* OnboardingRootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C3DB1206D44D400304133 /* OnboardingRootPageViewController.swift */; };
+		314C3DB6206D5B3E00304133 /* Onboarding2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C3DB5206D5B3E00304133 /* Onboarding2ViewController.swift */; };
 		315539831FC1113400E81B61 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315539821FC1113400E81B61 /* SignUpViewController.swift */; };
 		315909201FBE3C6900474A1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3159091F1FBE3C6900474A1D /* AppDelegate.swift */; };
 		315909221FBE3C6900474A1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315909211FBE3C6900474A1D /* ViewController.swift */; };
@@ -50,6 +57,13 @@
 		31153DB91FD0BCB000B8B894 /* Ambasity_V1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ambasity_V1.xcdatamodel; sourceTree = "<group>"; };
 		3116EA1D1FEB2D50001902B7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		314C3D8520609E8A00304133 /* MainFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedTableViewCell.swift; sourceTree = "<group>"; };
+		314C3D892067186F00304133 /* SupportViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SupportViewController.storyboard; sourceTree = "<group>"; };
+		314C3D8B2067187C00304133 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
+		314C3D8D2067DB6000304133 /* PreOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreOnboarding.storyboard; sourceTree = "<group>"; };
+		314C3D8F2067DFE200304133 /* PreOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreOnboardingViewController.swift; sourceTree = "<group>"; };
+		314C3D912068028200304133 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		314C3DB1206D44D400304133 /* OnboardingRootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRootPageViewController.swift; sourceTree = "<group>"; };
+		314C3DB5206D5B3E00304133 /* Onboarding2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2ViewController.swift; sourceTree = "<group>"; };
 		315539821FC1113400E81B61 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3159091C1FBE3C6900474A1D /* Ambasity V1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ambasity V1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3159091F1FBE3C6900474A1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,7 +154,14 @@
 				315539821FC1113400E81B61 /* SignUpViewController.swift */,
 				31153DB81FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld */,
 				315909261FBE3C6900474A1D /* Assets.xcassets */,
+				314C3D892067186F00304133 /* SupportViewController.storyboard */,
+				314C3D8B2067187C00304133 /* SupportViewController.swift */,
+				314C3D8D2067DB6000304133 /* PreOnboarding.storyboard */,
+				314C3D8F2067DFE200304133 /* PreOnboardingViewController.swift */,
 				315909281FBE3C6900474A1D /* LaunchScreen.storyboard */,
+				314C3D912068028200304133 /* Onboarding.storyboard */,
+				314C3DB5206D5B3E00304133 /* Onboarding2ViewController.swift */,
+				314C3DB1206D44D400304133 /* OnboardingRootPageViewController.swift */,
 				3159092B1FBE3C6900474A1D /* Info.plist */,
 			);
 			path = "Ambasity V1";
@@ -300,8 +321,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				314C3D8E2067DB6000304133 /* PreOnboarding.storyboard in Resources */,
 				3159092A1FBE3C6900474A1D /* LaunchScreen.storyboard in Resources */,
 				315909271FBE3C6900474A1D /* Assets.xcassets in Resources */,
+				314C3D922068028200304133 /* Onboarding.storyboard in Resources */,
+				314C3D8A2067186F00304133 /* SupportViewController.storyboard in Resources */,
 				315909251FBE3C6900474A1D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -387,15 +411,19 @@
 				316A1709203A54EF005EBC64 /* SubmitButton.swift in Sources */,
 				31FF83F11FCE3BB50046DBFA /* BrandInfoViewController.swift in Sources */,
 				31FF83EF1FCE3AFF0046DBFA /* BrandsViewController.swift in Sources */,
+				314C3DB2206D44D400304133 /* OnboardingRootPageViewController.swift in Sources */,
 				31153DBA1FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld in Sources */,
 				314C3D8620609E8A00304133 /* MainFeedTableViewCell.swift in Sources */,
 				318185CE1FC08BA4007441FC /* LoginViewController.swift in Sources */,
 				315909221FBE3C6900474A1D /* ViewController.swift in Sources */,
+				314C3D8C2067187C00304133 /* SupportViewController.swift in Sources */,
 				315539831FC1113400E81B61 /* SignUpViewController.swift in Sources */,
 				3116EA1E1FEB2D50001902B7 /* ProfileViewController.swift in Sources */,
+				314C3DB6206D5B3E00304133 /* Onboarding2ViewController.swift in Sources */,
 				3184AD5A202E93CB00EC7200 /* PasswordRecoveryViewController.swift in Sources */,
 				315909201FBE3C6900474A1D /* AppDelegate.swift in Sources */,
 				316A170B203A57D4005EBC64 /* DesignableTextField.swift in Sources */,
+				314C3D902067DFE200304133 /* PreOnboardingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -38,11 +38,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 user.email = newEmail.text
                 
                 user.signUpInBackground(block: { (success, error) in
-                    if success {
-                        self.performSegue(withIdentifier: "toApp", sender: nil)
+                    if error != nil {
+                        self.displayAlert(title: "Error", message: (error?.localizedDescription)!)
                     }
                     else {
-                        self.displayAlert(title: "Error", message: (error?.localizedDescription)!)
+                        self.segueToOnboarding()
                     }
                 })
             }
@@ -151,5 +151,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func segueToOnboarding() {
+        let storyboard = UIStoryboard(name: "PreOnboarding", bundle: nil)
+        let PreOnboardingViewController = storyboard.instantiateInitialViewController()!
+        self.present(PreOnboardingViewController, animated: true, completion: nil)
     }
 }

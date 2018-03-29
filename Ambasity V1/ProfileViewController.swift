@@ -217,12 +217,6 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                             })
                         }
                     }
-                    print(self.brandNames.count)
-                    print(self.brandLogos.count)
-                    print(objects.count)
-                    if self.brandNames.count == objects.count && self.brandNames.count == self.brandLogos.count {
-                        print("hello")
-                    }
                 }
             } else {
                 // Displays any encountered errors.
@@ -232,14 +226,11 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func supportButton_TouchUpInside(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "SupportViewController", bundle: nil)
+        let supportViewController = storyboard.instantiateInitialViewController()!
+        self.present(supportViewController, animated: true)
     }
-    */
+    
 
 }

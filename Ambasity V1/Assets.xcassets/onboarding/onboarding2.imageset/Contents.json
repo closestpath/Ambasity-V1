@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "ambasityMonochrome.png",
+      "filename" : "onboarding2.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "onboarding2-512.png",
       "scale" : "2x"
     },
     {

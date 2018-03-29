@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rEx-PP-IC9">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Heavy</string>
+            <string>Avenir-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Pre Onboarding View Controller-->
+        <scene sceneID="R1s-AD-IEq">
+            <objects>
+                <viewController id="rEx-PP-IC9" customClass="PreOnboardingViewController" customModule="Ambasity_V1" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bqF-99-oma">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="slateBackground" translatesAutoresizingMaskIntoConstraints="NO" id="btL-h8-FDj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hexagonalBackground" translatesAutoresizingMaskIntoConstraints="NO" id="sgI-xc-ddB">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ambasityLogo" translatesAutoresizingMaskIntoConstraints="NO" id="RBP-tq-jan">
+                                <rect key="frame" x="25" y="194" width="325" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="yZn-Fz-TTk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up successful! Take the next steps in becoming an ambassador." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Qh-Vp-24e">
+                                <rect key="frame" x="25" y="309" width="325" height="49.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="KMk-lD-CXF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="18"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="36"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAz-2w-61Z" customClass="SubmitButton" customModule="Ambasity_V1" customModuleProvider="target">
+                                <rect key="frame" x="25" y="383.5" width="325" height="50"/>
+                                <color key="backgroundColor" red="0.2363823884" green="0.74487305680000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="c8E-ei-61S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
+                                <state key="normal" title="Get Started">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="40"/>
+                                </variation>
+                                <connections>
+                                    <action selector="toOnboarding_TouchUpInside:" destination="rEx-PP-IC9" eventType="touchUpInside" id="u2u-Ws-JHf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NK2-NC-2O4" customClass="SubmitButton" customModule="Ambasity_V1" customModuleProvider="target">
+                                <rect key="frame" x="169" y="458.5" width="37" height="37"/>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                <state key="normal" title="Skip">
+                                    <color key="titleColor" red="0.2363823884" green="0.74487305680000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="36"/>
+                                </variation>
+                                <connections>
+                                    <action selector="skipOnboarding_TouchUpInside:" destination="rEx-PP-IC9" eventType="touchUpInside" id="iys-fd-k2P"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NK2-NC-2O4" firstAttribute="centerX" secondItem="bqF-99-oma" secondAttribute="centerX" id="4UL-nZ-xLR"/>
+                            <constraint firstItem="NK2-NC-2O4" firstAttribute="top" secondItem="bAz-2w-61Z" secondAttribute="bottom" constant="25" id="8B9-Ce-23g"/>
+                            <constraint firstItem="RBP-tq-jan" firstAttribute="leading" secondItem="Jr2-aW-Pu6" secondAttribute="leading" constant="25" id="GBh-rY-jyr"/>
+                            <constraint firstAttribute="trailing" secondItem="0Qh-Vp-24e" secondAttribute="trailing" constant="25" id="KWL-D0-3Ip"/>
+                            <constraint firstItem="btL-h8-FDj" firstAttribute="top" secondItem="bqF-99-oma" secondAttribute="top" id="Kqy-NJ-cJn"/>
+                            <constraint firstItem="Jr2-aW-Pu6" firstAttribute="bottom" secondItem="btL-h8-FDj" secondAttribute="bottom" id="QCF-Vy-lse"/>
+                            <constraint firstItem="Jr2-aW-Pu6" firstAttribute="trailing" secondItem="bAz-2w-61Z" secondAttribute="trailing" constant="25" id="TSq-Af-cYK"/>
+                            <constraint firstItem="Jr2-aW-Pu6" firstAttribute="trailing" secondItem="RBP-tq-jan" secondAttribute="trailing" constant="25" id="XF3-1U-iDp"/>
+                            <constraint firstItem="0Qh-Vp-24e" firstAttribute="centerY" secondItem="bqF-99-oma" secondAttribute="centerY" id="bov-71-ZZZ"/>
+                            <constraint firstItem="sgI-xc-ddB" firstAttribute="leading" secondItem="Jr2-aW-Pu6" secondAttribute="leading" id="c9C-rz-p5X"/>
+                            <constraint firstItem="bAz-2w-61Z" firstAttribute="leading" secondItem="Jr2-aW-Pu6" secondAttribute="leading" constant="25" id="cTW-6a-gH1"/>
+                            <constraint firstItem="sgI-xc-ddB" firstAttribute="top" secondItem="bqF-99-oma" secondAttribute="top" id="cre-Lt-XVm"/>
+                            <constraint firstItem="Jr2-aW-Pu6" firstAttribute="trailing" secondItem="btL-h8-FDj" secondAttribute="trailing" id="dNc-kZ-U3d"/>
+                            <constraint firstItem="Jr2-aW-Pu6" firstAttribute="trailing" secondItem="sgI-xc-ddB" secondAttribute="trailing" id="fcY-BR-YQr"/>
+                            <constraint firstItem="0Qh-Vp-24e" firstAttribute="top" secondItem="RBP-tq-jan" secondAttribute="bottom" constant="15" id="kQr-uo-A1F"/>
+                            <constraint firstItem="bAz-2w-61Z" firstAttribute="top" secondItem="0Qh-Vp-24e" secondAttribute="bottom" constant="25" id="m40-Zm-F2C"/>
+                            <constraint firstItem="0Qh-Vp-24e" firstAttribute="centerX" secondItem="bqF-99-oma" secondAttribute="centerX" id="njW-Gs-hgi"/>
+                            <constraint firstItem="0Qh-Vp-24e" firstAttribute="leading" secondItem="bqF-99-oma" secondAttribute="leading" constant="25" id="rB5-Pc-Mmn"/>
+                            <constraint firstItem="sgI-xc-ddB" firstAttribute="height" secondItem="bqF-99-oma" secondAttribute="height" multiplier="0.3" id="rWW-52-UQB"/>
+                            <constraint firstItem="btL-h8-FDj" firstAttribute="leading" secondItem="Jr2-aW-Pu6" secondAttribute="leading" id="vpU-9P-S2u"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jr2-aW-Pu6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PSi-cb-eHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="554" y="59"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ambasityLogo" width="583" height="107"/>
+        <image name="hexagonalBackground" width="1151" height="442"/>
+        <image name="slateBackground" width="600" height="600"/>
+    </resources>
+</document>
