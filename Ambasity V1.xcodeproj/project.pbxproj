@@ -7,16 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		310475EF207A9BED00AB45F1 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 310475EE207A9BED00AB45F1 /* SignUp.storyboard */; };
 		31153DBA1FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 31153DB81FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld */; };
 		3116EA1E1FEB2D50001902B7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3116EA1D1FEB2D50001902B7 /* ProfileViewController.swift */; };
+		313FF7E9206D9DD20065CDC6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313FF7E8206D9DD20065CDC6 /* SettingsViewController.swift */; };
+		313FF7EB206D9DE10065CDC6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 313FF7EA206D9DE10065CDC6 /* Settings.storyboard */; };
+		313FF7F0206DA7000065CDC6 /* GeneralSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313FF7EF206DA7000065CDC6 /* GeneralSettingsTableViewCell.swift */; };
+		313FF7F2206DA70B0065CDC6 /* AccountSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 313FF7F1206DA70B0065CDC6 /* AccountSettingsTableViewCell.swift */; };
 		314C3D8620609E8A00304133 /* MainFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C3D8520609E8A00304133 /* MainFeedTableViewCell.swift */; };
 		314C3D8A2067186F00304133 /* SupportViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314C3D892067186F00304133 /* SupportViewController.storyboard */; };
 		314C3D8C2067187C00304133 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C3D8B2067187C00304133 /* SupportViewController.swift */; };
 		314C3D8E2067DB6000304133 /* PreOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314C3D8D2067DB6000304133 /* PreOnboarding.storyboard */; };
 		314C3D902067DFE200304133 /* PreOnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C3D8F2067DFE200304133 /* PreOnboardingViewController.swift */; };
 		314C3D922068028200304133 /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 314C3D912068028200304133 /* Onboarding.storyboard */; };
-		314C3DB2206D44D400304133 /* OnboardingRootPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C3DB1206D44D400304133 /* OnboardingRootPageViewController.swift */; };
-		314C3DB6206D5B3E00304133 /* Onboarding2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314C3DB5206D5B3E00304133 /* Onboarding2ViewController.swift */; };
+		3151C9C82082952600AD4BB8 /* SignUpStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3151C9C72082952600AD4BB8 /* SignUpStepsViewController.swift */; };
 		315539831FC1113400E81B61 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315539821FC1113400E81B61 /* SignUpViewController.swift */; };
 		315909201FBE3C6900474A1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3159091F1FBE3C6900474A1D /* AppDelegate.swift */; };
 		315909221FBE3C6900474A1D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 315909211FBE3C6900474A1D /* ViewController.swift */; };
@@ -30,6 +34,11 @@
 		318185CE1FC08BA4007441FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318185CD1FC08BA4007441FC /* LoginViewController.swift */; };
 		3184AD5A202E93CB00EC7200 /* PasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3184AD59202E93CB00EC7200 /* PasswordRecoveryViewController.swift */; };
 		3184ADBE202FB32400EC7200 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3184ADBD202FB32400EC7200 /* LinksViewController.swift */; };
+		318E80CA207EDB1D00492CD1 /* SignUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E80C9207EDB1D00492CD1 /* SignUpCell.swift */; };
+		318E80CC207F023E00492CD1 /* OnboardingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E80CB207F023E00492CD1 /* OnboardingCollectionViewController.swift */; };
+		318E80CE207F036B00492CD1 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E80CD207F036B00492CD1 /* OnboardingCell.swift */; };
+		31FE9EEA207310C100EDA6EA /* LogoutCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE9EE9207310C100EDA6EA /* LogoutCellTableViewCell.swift */; };
+		31FE9EEC2073220100EDA6EA /* HeaderCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FE9EEB2073220100EDA6EA /* HeaderCellTableViewCell.swift */; };
 		31FF83EF1FCE3AFF0046DBFA /* BrandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF83EE1FCE3AFF0046DBFA /* BrandsViewController.swift */; };
 		31FF83F11FCE3BB50046DBFA /* BrandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF83F01FCE3BB50046DBFA /* BrandInfoViewController.swift */; };
 		8860219227BFFCA73AE80CE0 /* Pods_Ambasity_V1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FFA4DB0DE1A767FD6E1ADD5 /* Pods_Ambasity_V1.framework */; };
@@ -54,16 +63,20 @@
 
 /* Begin PBXFileReference section */
 		2FFA4DB0DE1A767FD6E1ADD5 /* Pods_Ambasity_V1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Ambasity_V1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		310475EE207A9BED00AB45F1 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		31153DB91FD0BCB000B8B894 /* Ambasity_V1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Ambasity_V1.xcdatamodel; sourceTree = "<group>"; };
 		3116EA1D1FEB2D50001902B7 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		313FF7E8206D9DD20065CDC6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		313FF7EA206D9DE10065CDC6 /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		313FF7EF206DA7000065CDC6 /* GeneralSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		313FF7F1206DA70B0065CDC6 /* AccountSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		314C3D8520609E8A00304133 /* MainFeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedTableViewCell.swift; sourceTree = "<group>"; };
 		314C3D892067186F00304133 /* SupportViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SupportViewController.storyboard; sourceTree = "<group>"; };
 		314C3D8B2067187C00304133 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		314C3D8D2067DB6000304133 /* PreOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PreOnboarding.storyboard; sourceTree = "<group>"; };
 		314C3D8F2067DFE200304133 /* PreOnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreOnboardingViewController.swift; sourceTree = "<group>"; };
 		314C3D912068028200304133 /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
-		314C3DB1206D44D400304133 /* OnboardingRootPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingRootPageViewController.swift; sourceTree = "<group>"; };
-		314C3DB5206D5B3E00304133 /* Onboarding2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2ViewController.swift; sourceTree = "<group>"; };
+		3151C9C72082952600AD4BB8 /* SignUpStepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStepsViewController.swift; sourceTree = "<group>"; };
 		315539821FC1113400E81B61 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		3159091C1FBE3C6900474A1D /* Ambasity V1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ambasity V1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3159091F1FBE3C6900474A1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +96,11 @@
 		318185CD1FC08BA4007441FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3184AD59202E93CB00EC7200 /* PasswordRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryViewController.swift; sourceTree = "<group>"; };
 		3184ADBD202FB32400EC7200 /* LinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewController.swift; sourceTree = "<group>"; };
+		318E80C9207EDB1D00492CD1 /* SignUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCell.swift; sourceTree = "<group>"; };
+		318E80CB207F023E00492CD1 /* OnboardingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewController.swift; sourceTree = "<group>"; };
+		318E80CD207F036B00492CD1 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
+		31FE9EE9207310C100EDA6EA /* LogoutCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutCellTableViewCell.swift; sourceTree = "<group>"; };
+		31FE9EEB2073220100EDA6EA /* HeaderCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCellTableViewCell.swift; sourceTree = "<group>"; };
 		31FF83EE1FCE3AFF0046DBFA /* BrandsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandsViewController.swift; sourceTree = "<group>"; };
 		31FF83F01FCE3BB50046DBFA /* BrandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandInfoViewController.swift; sourceTree = "<group>"; };
 		4922EFFA5C0DCFF2510E2C97 /* Pods-Ambasity V1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambasity V1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambasity V1/Pods-Ambasity V1.release.xcconfig"; sourceTree = "<group>"; };
@@ -154,14 +172,23 @@
 				315539821FC1113400E81B61 /* SignUpViewController.swift */,
 				31153DB81FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld */,
 				315909261FBE3C6900474A1D /* Assets.xcassets */,
+				310475EE207A9BED00AB45F1 /* SignUp.storyboard */,
+				3151C9C72082952600AD4BB8 /* SignUpStepsViewController.swift */,
+				318E80C9207EDB1D00492CD1 /* SignUpCell.swift */,
 				314C3D892067186F00304133 /* SupportViewController.storyboard */,
 				314C3D8B2067187C00304133 /* SupportViewController.swift */,
 				314C3D8D2067DB6000304133 /* PreOnboarding.storyboard */,
 				314C3D8F2067DFE200304133 /* PreOnboardingViewController.swift */,
 				315909281FBE3C6900474A1D /* LaunchScreen.storyboard */,
 				314C3D912068028200304133 /* Onboarding.storyboard */,
-				314C3DB5206D5B3E00304133 /* Onboarding2ViewController.swift */,
-				314C3DB1206D44D400304133 /* OnboardingRootPageViewController.swift */,
+				318E80CB207F023E00492CD1 /* OnboardingCollectionViewController.swift */,
+				318E80CD207F036B00492CD1 /* OnboardingCell.swift */,
+				313FF7EA206D9DE10065CDC6 /* Settings.storyboard */,
+				31FE9EEB2073220100EDA6EA /* HeaderCellTableViewCell.swift */,
+				31FE9EE9207310C100EDA6EA /* LogoutCellTableViewCell.swift */,
+				313FF7EF206DA7000065CDC6 /* GeneralSettingsTableViewCell.swift */,
+				313FF7F1206DA70B0065CDC6 /* AccountSettingsTableViewCell.swift */,
+				313FF7E8206D9DD20065CDC6 /* SettingsViewController.swift */,
 				3159092B1FBE3C6900474A1D /* Info.plist */,
 			);
 			path = "Ambasity V1";
@@ -277,7 +304,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = ClosestPath;
 				TargetAttributes = {
 					3159091B1FBE3C6900474A1D = {
@@ -327,6 +354,8 @@
 				314C3D922068028200304133 /* Onboarding.storyboard in Resources */,
 				314C3D8A2067186F00304133 /* SupportViewController.storyboard in Resources */,
 				315909251FBE3C6900474A1D /* Main.storyboard in Resources */,
+				310475EF207A9BED00AB45F1 /* SignUp.storyboard in Resources */,
+				313FF7EB206D9DE10065CDC6 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,21 +438,28 @@
 			files = (
 				3184ADBE202FB32400EC7200 /* LinksViewController.swift in Sources */,
 				316A1709203A54EF005EBC64 /* SubmitButton.swift in Sources */,
+				318E80CA207EDB1D00492CD1 /* SignUpCell.swift in Sources */,
 				31FF83F11FCE3BB50046DBFA /* BrandInfoViewController.swift in Sources */,
 				31FF83EF1FCE3AFF0046DBFA /* BrandsViewController.swift in Sources */,
-				314C3DB2206D44D400304133 /* OnboardingRootPageViewController.swift in Sources */,
 				31153DBA1FD0BCB000B8B894 /* Ambasity_V1.xcdatamodeld in Sources */,
+				31FE9EEC2073220100EDA6EA /* HeaderCellTableViewCell.swift in Sources */,
 				314C3D8620609E8A00304133 /* MainFeedTableViewCell.swift in Sources */,
 				318185CE1FC08BA4007441FC /* LoginViewController.swift in Sources */,
 				315909221FBE3C6900474A1D /* ViewController.swift in Sources */,
+				318E80CC207F023E00492CD1 /* OnboardingCollectionViewController.swift in Sources */,
 				314C3D8C2067187C00304133 /* SupportViewController.swift in Sources */,
+				3151C9C82082952600AD4BB8 /* SignUpStepsViewController.swift in Sources */,
+				313FF7F0206DA7000065CDC6 /* GeneralSettingsTableViewCell.swift in Sources */,
+				313FF7F2206DA70B0065CDC6 /* AccountSettingsTableViewCell.swift in Sources */,
 				315539831FC1113400E81B61 /* SignUpViewController.swift in Sources */,
 				3116EA1E1FEB2D50001902B7 /* ProfileViewController.swift in Sources */,
-				314C3DB6206D5B3E00304133 /* Onboarding2ViewController.swift in Sources */,
 				3184AD5A202E93CB00EC7200 /* PasswordRecoveryViewController.swift in Sources */,
 				315909201FBE3C6900474A1D /* AppDelegate.swift in Sources */,
+				31FE9EEA207310C100EDA6EA /* LogoutCellTableViewCell.swift in Sources */,
+				318E80CE207F036B00492CD1 /* OnboardingCell.swift in Sources */,
 				316A170B203A57D4005EBC64 /* DesignableTextField.swift in Sources */,
 				314C3D902067DFE200304133 /* PreOnboardingViewController.swift in Sources */,
+				313FF7E9206D9DD20065CDC6 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,6 +528,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -499,6 +536,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -526,7 +564,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -549,6 +587,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -556,6 +595,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -577,7 +617,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -593,7 +633,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S777RS4GYD;
 				INFOPLIST_FILE = "Ambasity V1/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ClosestPath.Ambasity-V1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -610,7 +650,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = S777RS4GYD;
 				INFOPLIST_FILE = "Ambasity V1/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ClosestPath.Ambasity-V1";
 				PRODUCT_NAME = "$(TARGET_NAME)";

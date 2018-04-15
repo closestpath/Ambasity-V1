@@ -22,25 +22,12 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     var brandLogos = [UIImage]()
     var logoType : String!
     
-    
-    @IBAction func logoutButtonPressed(_ sender: Any) {
-        // Logs the user out and segues them to the welcome screen.
-        PFUser.logOut()
-        performSegue(withIdentifier: "logoutSegue", sender: self)
-    }
+    var profileImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        // Determining if Ambasity is being run on an iPad or iPhone, which will determine the image download size.
-        if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.pad {
-            logoType = "iPadLogo"
-        }
-        else if UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiom.phone {
-            logoType = "iPhoneLogo"
-        }
         
         let currentUser = PFUser.current()
         // Checking to make sure a username exists.
@@ -66,7 +53,8 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
                         // Making sure the image data can be converted into a UIImage.
                         if let image = UIImage(data: imageData) {
                             // Displaying the downloaded profile image.
-                            self.profileImageView.image = image
+                            self.profileImage = image
+                            self.profileImageView.image = self.profileImage
                         }
                     }
                     
@@ -81,49 +69,13 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         // Rounds the edges to the profile image view.
         profileImageView.layer.cornerRadius = (profileImageView.frame.size.width / 2)
         
-        updateScrollView()
+        //updateScrollView()
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func updateProfilePicture(_ sender: Any) {
-        // Creates the controller to select an image from the user's photo library.
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        imagePicker.allowsEditing = true
-        // Displays the controller on the screen.
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        // Checking to make sure an image was selected.
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            
-            // Making that image our profile image.
-            profileImageView.image = image
-            
-            // Converting image into a data file.
-            if let imageData = UIImagePNGRepresentation(image) {
-                
-                // Uploading the image file to the User's file in our database.
-                PFUser.current()?["ProfileImage"] = PFFile(name: "profile.png", data: imageData)
-                
-                // Saving the changes.
-                PFUser.current()?.saveInBackground(block: { (success, error) in
-                    // Displays any encountered errors.
-                    if error != nil {
-                        self.displayAlert(title: "Error", message: error!.localizedDescription)
-                    }
-                })
-            }
-        }
-        
-        dismiss(animated: true, completion: nil)
     }
 
     // Creates an alert with title and message parameters.
@@ -135,7 +87,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         
     }
     
-    func updateScrollView () {
+    /*func updateScrollView () {
         // Retrieving the information for the brands the user is representing.
         // Defining our query.
         let query = PFQuery(className: "Representing")
@@ -224,7 +176,7 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
             }
         })
         
-    }
+    }*/
     
     @IBAction func supportButton_TouchUpInside(_ sender: Any) {
         let storyboard = UIStoryboard(name: "SupportViewController", bundle: nil)
@@ -232,5 +184,21 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
         self.present(supportViewController, animated: true)
     }
     
+    
+    @IBAction func settingsButton_TouchUpInside(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+        let supportViewController = storyboard.instantiateInitialViewController()!
+        self.present(supportViewController, animated: true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSettings" {
+            let settingsViewController = segue.destination as! SettingsViewController
+            if let image = profileImage {
+                settingsViewController.profilePhoto?.image = image
+            }
+        }
+    }
 
 }

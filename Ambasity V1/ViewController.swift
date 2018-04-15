@@ -9,6 +9,12 @@
 import UIKit
 import Parse
 
+extension UIColor {
+    
+    static var mainBlue = UIColor(red: 60/255, green: 190/255, blue: 1, alpha: 1)
+    
+}
+
 class ViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func signInPressed(_ sender: Any) {
@@ -16,7 +22,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func signUpPressed(_ sender: Any) {
-        performSegue(withIdentifier: "toSignUp", sender: nil)
+        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController()!
+        self.present(vc, animated: true, completion: nil)
+        //performSegue(withIdentifier: "toSignUp", sender: nil)
     }
     
     override func viewDidLoad() {

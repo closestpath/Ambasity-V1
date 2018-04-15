@@ -10,12 +10,6 @@ import UIKit
 
 @IBDesignable class DesignableTextField: UITextField {
     
-    @IBInspectable var cornerRadius: CGFloat = 25.0 {
-        didSet {
-            self.layer.cornerRadius = cornerRadius
-        }
-    }
-    
     override func rightViewRect(forBounds bounds: CGRect) -> CGRect {
         var textRect = super.rightViewRect(forBounds: bounds)
         textRect.origin.x -= rightPadding
