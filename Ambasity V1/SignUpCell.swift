@@ -8,16 +8,9 @@
 
 import UIKit
 
-extension UITextView {
-    
-    func setBottomBorder() {
-        
-    }
-    
-}
-
 class SignUpCell: UICollectionViewCell {
     
+// View Initializers
     var form: Form? {
         
         didSet {
@@ -66,6 +59,7 @@ class SignUpCell: UICollectionViewCell {
         return label
     }()
     
+// Main View Setup
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -77,6 +71,7 @@ class SignUpCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+// View Setup
     private func setupLayout() {
         
         addSubview(headerLabel)

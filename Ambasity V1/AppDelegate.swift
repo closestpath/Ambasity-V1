@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             $0.server = "http://ec2-54-164-139-254.compute-1.amazonaws.com/parse"
         }
         Parse.initialize(with: configuration)
+        
+        application.statusBarStyle = .lightContent
         return true
     }
 

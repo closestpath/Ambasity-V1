@@ -8,79 +8,85 @@
 
 import UIKit
 import Parse
-import CoreData
 
-class BrandsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchControllerDelegate {
+class BrandsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    private let overlay = UIView()
+    private let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
     @IBOutlet var table: UITableView!
     
-    var brandNames = [String]()
-    var brandDescriptions = [String]()
-    var brandIds = [String]();
-    var brandImageData = [PFFile]()
+    var brands = [Brand]()
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return brandNames.count
+// Main View Setup
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view.
+        getBrandInfo()
+        view.startActivityIndicator(overlay: overlay, activityIndicator: activityIndicator)
     }
     
+// Table View Protocols
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return brands.count
+    }
+    
+    // Row View
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainFeedTableViewCell
+        cell.nameLabel.text = brands[indexPath.row].name
+        cell.descriptionLabel.text = brands[indexPath.row].description
+        /*brandImageData[indexPath.section].getDataInBackground { (data, error) in
+         if let imageData = data {
+         if let logo = UIImage(data: imageData) {
+         //cell.icon.image = logo
+         }
+         }
+         }*/
+        return cell
+    }
+    
+    // Row Height
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainFeedTableViewCell
-        cell.nameLabel.text = brandNames[indexPath.row]
-        cell.descriptionLabel.text = brandDescriptions[indexPath.row]
-        /*brandImageData[indexPath.section].getDataInBackground { (data, error) in
-            if let imageData = data {
-                if let logo = UIImage(data: imageData) {
-                    //cell.icon.image = logo
-                }
-            }
-        }*/
-        return cell
+    // Footer View
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = UIView()
+        view.backgroundColor = .clear
+        return view
     }
     
+    // Selection Handlers
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         performSegue(withIdentifier: "toBrandInfo", sender: indexPath.row)
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
-        
-        /* Setup the Search Controller
-        let searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = true
-        searchController.searchBar.placeholder = "Search Apps"
-        navigationItem.searchController = searchController
-        definesPresentationContext = true*/
-        
+    
+// View Setup
+    private func getBrandInfo() {
         let query = PFQuery(className: "Brand")
         query.findObjectsInBackground(block: { (objects, error) in
             if error == nil {
-                if let brands = objects {
+                
+                if objects != nil {
                     
-                    for brand in brands {
+                    for object in objects! {
                         
-                        if let brandName = brand["Name"] as? String {
-                            self.brandNames.append(brandName)
-                        }
-                        if let brandDescription = brand["Description"] as? String {
-                            self.brandDescriptions.append(brandDescription)
-                        }
-                        if let brandId = brand.objectId {
-                            self.brandIds.append(brandId)
-                        }
-                        if let brandImageData = brand["iPhoneLogo"] as? PFFile {
-                            self.brandImageData.append(brandImageData)
-                        }
+                        guard let objectId = object.objectId else { return }
+                        guard let name = object["Name"] as? String else { return }
+                        guard let description = object["Description"] as? String else { return }
+                        guard let logo = object["iPhoneLogo"] as? PFFile else { return }
+                        guard let link = object["Link"] as? String else { return }
+                        
+                        let brand = Brand(objectId: objectId, name: name, description: description, logo: logo, link: link)
+                        
+                        self.brands.append(brand)
                         self.table.reloadData()
                     }
+                    self.view.stopActivityIndicator(overlay: self.overlay, activityIndicator: self.activityIndicator)
                 }
             }
             else {
@@ -88,30 +94,17 @@ class BrandsViewController: UIViewController, UITableViewDataSource, UITableView
             }
         })
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toBrandInfo" {
-            let brandInfoViewController = segue.destination as! BrandInfoViewController
-            if let selectedBrand = sender as? Int {
-                brandInfoViewController.brandName = brandNames[selectedBrand]
-                brandInfoViewController.brandDescription = brandDescriptions[selectedBrand]
-                brandInfoViewController.brandId = brandIds[selectedBrand]
-            }
-        }
-    }
-    
-    func displayAlert (title:String, message:String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action) in
-            self.dismiss(animated: true, completion: nil)
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
-}
 
-extension BrandsViewController: UISearchResultsUpdating {
-    // MARK: - UISearchResultsUpdating Delegate
-    func updateSearchResults(for searchController: UISearchController) {
-        // TODO
+// Button Targets
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toBrandInfo" {
+            
+            guard let brandInfoViewController = segue.destination as? BrandInfoViewController else { return }
+            guard let selectedRow = sender as? Int else { return }
+            
+            brandInfoViewController.brand = brands[selectedRow]
+            
+        }
     }
 }

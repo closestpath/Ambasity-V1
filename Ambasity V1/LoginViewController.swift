@@ -12,7 +12,8 @@ import Parse
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
-    let activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+    let overlay = UIView()
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
@@ -20,14 +21,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var scrollView: UIScrollView!
     
     var activeField: UITextField!
-    
-    func displayAlert (title:String, message:String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: { (action) in
-            
-        }))
-        self.present(alert, animated: true, completion: nil)
-    }
     
     @IBAction func signIn(_ sender: Any) {
         
@@ -56,21 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        // Setting up the activity indicator that signals the app is looking for a logged-in user.
-        // Defining the center point.
-        activityIndicator.center.x = self.view.center.x
-        activityIndicator.center.y = self.view.center.y
-        activityIndicator.hidesWhenStopped = true
-        
-        // Defining the color/style.
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        
-        // Adding the activity indicator to the UIView.
-        view.addSubview(activityIndicator)
-        // Starts animating.
-        activityIndicator.startAnimating()
-        // Ignores user interaction events until the app has stopped looking for a logged-in user.
-        UIApplication.shared.beginIgnoringInteractionEvents()
+        view.startActivityIndicator(overlay: overlay, activityIndicator: activityIndicator)
         
         // Defining the tool bar to contain a button to exit the keyboard.
         let toolBar = UIToolbar()
@@ -93,17 +72,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         // If the user is currently logged in, redirect them to the application home page.
         if PFUser.current() != nil {
-            // Stops ignoring interaction events.
             UIApplication.shared.endIgnoringInteractionEvents()
-            // Segues the user to the home page.
             performSegue(withIdentifier: "toApp", sender: self)
         }
         // If the user is not currently logged in.
         else {
-            // Stops ignoring interaction events.
-            UIApplication.shared.endIgnoringInteractionEvents()
-            // Stops the activity indicator.
-            activityIndicator.stopAnimating()
+            view.stopActivityIndicator(overlay: overlay, activityIndicator: activityIndicator)
         }
         
         // Sets notifications for when the keyboard is in use.

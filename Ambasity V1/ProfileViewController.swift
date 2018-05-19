@@ -9,7 +9,9 @@
 import UIKit
 import Parse
 
-class ProfileViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ProfileViewController: UIViewController {
+    
+    private var user: User?
     
     @IBOutlet var usernameLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
@@ -24,181 +26,87 @@ class ProfileViewController: UIViewController, UINavigationControllerDelegate, U
     
     var profileImage: UIImage?
     
+// Main View Setup
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
-        let currentUser = PFUser.current()
-        // Checking to make sure a username exists.
-        if let username = currentUser?.username {
-            // Changing the label to display the current user's username.
-            usernameLabel.text = "@" + username
-        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        // Checking to make sure an email exists.
-        if let email = currentUser?.email {
-            // Changing the label to display the current user's email address.
-            emailLabel.text = email
-        }
+        getUserData()
+        setupLayout()
+    }
+    
+// View Setup
+    private func getUserData() {
+        guard let currentUser = PFUser.current() else { return }
         
-        // Checking to make sure a profile photo exists.
-        if let profileImageFile = currentUser?["ProfileImage"] as? PFFile {
-            
-            // Downloading the file.
-            profileImageFile.getDataInBackground(block: { (data, error) in
-                if error == nil {
-                    
-                    if let imageData = data {
-                        // Making sure the image data can be converted into a UIImage.
-                        if let image = UIImage(data: imageData) {
-                            // Displaying the downloaded profile image.
-                            self.profileImage = image
-                            self.profileImageView.image = self.profileImage
-                        }
-                    }
-                    
-                } else {
-                    // Displays any encountered errors.
-                    self.displayAlert(title: "Error", message: error!.localizedDescription)
-                }
-            })
-            
-        }
+        let username = currentUser.username!
+        let email = currentUser.email!
+        let phoneNumber = currentUser["phoneNumber"] as? String
+        let bio = currentUser["bio"] as? String
+        let message = currentUser["personalizedMessage"] as? String
+        let profileImageFile = currentUser["profileImage"] as? PFFile
+        let venmoId = currentUser["venmoId"] as? String
+        let paypalUsername = currentUser["paypalUsername"] as? String
         
-        // Rounds the edges to the profile image view.
+        user = User(username: username, email: email, phoneNumber: phoneNumber, bio: bio, message: message, profileImageFile: profileImageFile, venmoId: venmoId, paypalUsername: paypalUsername)
+    }
+    
+    private func setupLayout() {
+        usernameLabel.text = user?.username
+        emailLabel.text = user?.email
         profileImageView.layer.cornerRadius = (profileImageView.frame.size.width / 2)
         
-        //updateScrollView()
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // Creates an alert with title and message parameters.
-    func displayAlert(title: String, message: String) {
-        
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
-        
-    }
-    
-    /*func updateScrollView () {
-        // Retrieving the information for the brands the user is representing.
-        // Defining our query.
-        let query = PFQuery(className: "Representing")
-        query.whereKey("Ambassador", equalTo: PFUser.current()!)
-        
-        //Executing the query.
-        query.findObjectsInBackground { (objects, error) in
-            if error == nil {
-                // Clears the old data.
-                self.brandIds.removeAll()
+        if let profileImageFile = user?.profileImageFile {
+            
+            profileImageFile.getDataInBackground(block: { (data, error) in
                 
-                // Making sure objects are found.
-                if let objects = objects {
+                if error != nil {
                     
-                    for object in objects {
-                        
-                        // Making sure each object is a brand object.
-                        if let brand = object["Brand"] as? PFObject {
-                            // Making sure each brand has an id.
-                            if let brandId = brand.objectId {
-                                
-                                self.brandIds.append(brandId)
-                                
-                            }
-                        }
-                        
-                    }
-                    print(self.brandIds.count)
-                    print(objects.count)
-                    if self.brandIds.count == objects.count {
-                        
-                        self.retrieveBrandData(self.brandIds)
-                    }
+                    let alert = UIAlertController(title: "Error", message: "Parse Server: \(error!.localizedDescription)", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                    
+                } else {
+                    
+                    guard let imageData = data else { return }
+                    guard let image = UIImage(data: imageData) else { return }
+                    
+                    self.profileImage = image
+                    self.profileImageView.image = image
+                    
                 }
-            } else {
-                // Displays any encountered errors.
-                self.displayAlert(title: "Error", message: error!.localizedDescription)
-            }
+            })
         }
     }
-    
-    func retrieveBrandData (_ brandIds: [String]) {
-        
-        // Defining our inner query to query the specific brand information.
-        let query = PFQuery(className: "Brand")
-        query.whereKey("objectId", containedIn: brandIds)
-        
-        // Executing our innery query.
-        query.findObjectsInBackground(block: { (objects, error) in
-            
-            if error == nil {
-                // Making sure objects are found.
-                if let objects = objects {
-                    
-                    for object in objects {
-                        // Making sure the brand has a name.
-                        if let brandName = object["Name"] as? String {
-                            // Adding that name to our brands list.
-                            self.brandNames.append(brandName)
-                        }
-                        // Making sure the brand has a logo file.
-                        if let logoImageFile = object[self.logoType] as? PFFile {
-                            // Downloading the file.
-                            logoImageFile.getDataInBackground(block: { (data, error) in
-                                if error == nil {
-                                    
-                                    if let imageData = data {
-                                        // Making sure the image data can be converted into a UIImage.
-                                        if let image = UIImage(data: imageData) {
-                                            // Displaying the downloaded profile image.
-                                            self.brandLogos.append(image)
-                                        }
-                                    }
-                                    
-                                } else {
-                                    // Displays any encountered errors.
-                                    self.displayAlert(title: "Error", message: error!.localizedDescription)
-                                }
-                            })
-                        }
-                    }
-                }
-            } else {
-                // Displays any encountered errors.
-                self.displayAlert(title: "Error", message: error!.localizedDescription)
-            }
-        })
-        
-    }*/
-    
+   
+// Button Targets
     @IBAction func supportButton_TouchUpInside(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "SupportViewController", bundle: nil)
+        let storyboard = UIStoryboard(name: "Support", bundle: nil)
         let supportViewController = storyboard.instantiateInitialViewController()!
         self.present(supportViewController, animated: true)
     }
     
     
     @IBAction func settingsButton_TouchUpInside(_ sender: Any) {
-        
-        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-        let supportViewController = storyboard.instantiateInitialViewController()!
-        self.present(supportViewController, animated: true)
+        performSegue(withIdentifier: "toSettings", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toSettings" {
-            let settingsViewController = segue.destination as! SettingsViewController
-            if let image = profileImage {
-                settingsViewController.profilePhoto?.image = image
-            }
+            
+            guard let destinationViewController = segue.destination as? UINavigationController else { return }
+            guard let settingsTableViewController = destinationViewController.topViewController  as? SettingsTableViewController else { return }
+            
+            guard let unwrappedUser = user else { return }
+            settingsTableViewController.user = unwrappedUser
+            
+            guard let unwrappedProfileImage = profileImage else { return }
+            settingsTableViewController.profileImage = unwrappedProfileImage
+            
         }
     }
-
 }

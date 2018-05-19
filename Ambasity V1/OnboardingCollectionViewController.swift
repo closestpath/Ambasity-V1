@@ -8,22 +8,13 @@
 
 import UIKit
 
-struct Page {
-    
-    let imageName: String
-    let headerText: String
-    let bodyText: String
-    let pageNumber: Int
-    
-}
-
 class OnboardingCollectionViewController: UICollectionViewController {
     
     let pages = [
         
-        Page(imageName: "onboarding0", headerText: "Choose Your Brands", bodyText: "Ambassadors receive their own custom link for each brand they choose to endorse.", pageNumber: 0),
-        Page(imageName: "onboarding1", headerText: "Share Your Link", bodyText: "You can text, post, or share your customized link with your network as long as the campaign is open.", pageNumber: 1),
-        Page(imageName: "onboarding2", headerText: "Get Paid!", bodyText: "For every person who clicks on your link and downloads the mobile app... you get paid!", pageNumber: 2)
+        OnboardingPage(imageName: "onboarding0", headerText: "Choose Your Brands", bodyText: "Ambassadors receive their own custom link for each brand they choose to endorse.", pageNumber: 0),
+        OnboardingPage(imageName: "onboarding1", headerText: "Share Your Link", bodyText: "You can text, post, or share your customized link with your network as long as the campaign is open.", pageNumber: 1),
+        OnboardingPage(imageName: "onboarding2", headerText: "Get Paid!", bodyText: "For every person who clicks on your link and downloads the mobile app... you get paid!", pageNumber: 2)
         
     ]
     

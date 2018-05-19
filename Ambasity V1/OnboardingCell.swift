@@ -10,7 +10,7 @@ import UIKit
 
 class OnboardingCell: UICollectionViewCell {
     
-    var page: Page? {
+    var page: OnboardingPage? {
         
         didSet {
             guard let unwrappedPage = page else { return }
@@ -104,15 +104,16 @@ class OnboardingCell: UICollectionViewCell {
     
     private func setupLayout() {
         
-        addSubview(headerLabel)
+        [headerLabel, onboardingImageView, bodyLabel, doneButton].forEach {
+            addSubview($0)
+        }
         
         headerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30).isActive = true
         headerLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30).isActive = true
         headerLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         headerLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         headerLabel.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        addSubview(onboardingImageView)
+
         onboardingImageView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         onboardingImageView.topAnchor.constraint(greaterThanOrEqualTo: topAnchor, constant: 100).isActive = true
         onboardingImageView.bottomAnchor.constraint(equalTo: headerLabel.topAnchor, constant: -25).isActive = true
@@ -120,13 +121,7 @@ class OnboardingCell: UICollectionViewCell {
         onboardingImageView.widthAnchor.constraint(lessThanOrEqualToConstant: 256).isActive = true
         onboardingImageView.heightAnchor.constraint(equalTo: onboardingImageView.widthAnchor).isActive = true
         
-        addSubview(bodyLabel)
-        
-        bodyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        bodyLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20).isActive = true
-        bodyLabel.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 10).isActive = true
-        
-        addSubview(doneButton)
+        bodyLabel.anchor(top: headerLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: .init(top: 10, left: 20, bottom: 0, right: 20))
         
         doneButton.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         doneButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -100).isActive = true

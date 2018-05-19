@@ -18,11 +18,7 @@ class LinksViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Setting a larger navigation title.
-        navigationController?.navigationBar.prefersLargeTitles = true
 
-        // Updating the table once the view has initially loaded.
         updateTable()
         // Adding the refreshing spinner.
         refresher.addTarget(self, action: #selector(LinksViewController.updateTable), for: UIControlEvents.valueChanged)
@@ -59,46 +55,7 @@ class LinksViewController: UIViewController, UITableViewDataSource, UITableViewD
         
     }
     
-    // Creates an alert with title and message parameters.
-    func displayAlert(title: String, message: String) {
+    @objc private func updateTable() {
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
-        
-    }
-    
-    @objc func updateTable() {
-        
-        // Defining the query to select only the rows from the Representing Table where the Ambassador is the current user.
-        let query = PFQuery(className: "Representing")
-        query.whereKey("Ambassador", equalTo: PFUser.current()!)
-        
-        // Running the query.
-        query.findObjectsInBackground { (objects, error) in
-            if error == nil {
-                
-                if let objects = objects {
-                    // Clears the old data.
-                    self.links.removeAll()
-                    
-                    for object in objects {
-                        // Adds each new link to our array.
-                        self.links.append(object.objectId!)
-                        
-                    }
-                    
-                    // Reloads the table once all links have been added.
-                    if self.links.count == objects.count {
-
-                        self.tableView.reloadData()
-                        self.refresher.endRefreshing()
-                    }
-                }
-            } else {
-                // Displays any errors.
-                self.displayAlert(title: "Error", message: error!.localizedDescription)
-            }
-        }
     }
 }
