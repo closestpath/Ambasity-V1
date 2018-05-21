@@ -109,7 +109,7 @@ class PaymentViewController: UIViewController, SettingDelegate {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: saveButton)
         saveButton.addTarget(self, action: #selector(saveButton_TouchUpInside), for: .touchUpInside)
         
-        navigationController?.navigationBar.transparentNavigationBar()
+        //navigationController?.navigationBar.transparentNavigationBar()
     }
     
     private func setupTableView() {

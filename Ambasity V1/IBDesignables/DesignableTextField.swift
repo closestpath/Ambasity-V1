@@ -22,7 +22,7 @@ import UIKit
         }
     }
     
-    @IBInspectable var rightPadding: CGFloat = 25
+    @IBInspectable var rightPadding: CGFloat = 15
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: 15, dy: 0)

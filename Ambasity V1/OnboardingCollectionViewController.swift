@@ -42,7 +42,7 @@ class OnboardingCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        collectionView?.register(OnboardingCell.self, forCellWithReuseIdentifier: "cellId")
+        collectionView?.register(OnboardingCell.self, forCellWithReuseIdentifier: "onboardingCell")
         collectionView?.isPagingEnabled = true
         collectionView?.backgroundView = backgroundImageView
         
@@ -58,7 +58,7 @@ class OnboardingCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! OnboardingCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "onboardingCell", for: indexPath) as! OnboardingCell
         
         let page = pages[indexPath.item]
         cell.page = page

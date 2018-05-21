@@ -170,7 +170,8 @@ class SettingsTableViewController: UITableViewController, UINavigationController
             switch item {
             case 0:
                 self.performSegue(withIdentifier: "toPayment", sender: nil)
-            case 1: break
+            case 1:
+                self.performSegue(withIdentifier: "toPasswordChange", sender: nil)
             case 2:
                 let storyboard = UIStoryboard(name: "Support", bundle: nil)
                 let supportViewController = storyboard.instantiateInitialViewController()!

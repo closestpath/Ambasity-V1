@@ -38,13 +38,13 @@
 		316A170B203A57D4005EBC64 /* DesignableTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316A170A203A57D4005EBC64 /* DesignableTextField.swift */; };
 		318185CE1FC08BA4007441FC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318185CD1FC08BA4007441FC /* LoginViewController.swift */; };
 		3184AD5A202E93CB00EC7200 /* PasswordRecoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3184AD59202E93CB00EC7200 /* PasswordRecoveryViewController.swift */; };
-		3184ADBE202FB32400EC7200 /* LinksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3184ADBD202FB32400EC7200 /* LinksViewController.swift */; };
 		318E80CA207EDB1D00492CD1 /* SignUpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E80C9207EDB1D00492CD1 /* SignUpCell.swift */; };
 		318E80CC207F023E00492CD1 /* OnboardingCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E80CB207F023E00492CD1 /* OnboardingCollectionViewController.swift */; };
 		318E80CE207F036B00492CD1 /* OnboardingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318E80CD207F036B00492CD1 /* OnboardingCell.swift */; };
 		31FF83EF1FCE3AFF0046DBFA /* BrandsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF83EE1FCE3AFF0046DBFA /* BrandsViewController.swift */; };
 		31FF83F11FCE3BB50046DBFA /* BrandInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31FF83F01FCE3BB50046DBFA /* BrandInfoViewController.swift */; };
 		8860219227BFFCA73AE80CE0 /* Pods_Ambasity_V1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FFA4DB0DE1A767FD6E1ADD5 /* Pods_Ambasity_V1.framework */; };
+		E7CE4F5920B216D8002FCD66 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CE4F5820B216D7002FCD66 /* ChangePasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +103,6 @@
 		316A170A203A57D4005EBC64 /* DesignableTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableTextField.swift; sourceTree = "<group>"; };
 		318185CD1FC08BA4007441FC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3184AD59202E93CB00EC7200 /* PasswordRecoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryViewController.swift; sourceTree = "<group>"; };
-		3184ADBD202FB32400EC7200 /* LinksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinksViewController.swift; sourceTree = "<group>"; };
 		318E80C9207EDB1D00492CD1 /* SignUpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCell.swift; sourceTree = "<group>"; };
 		318E80CB207F023E00492CD1 /* OnboardingCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewController.swift; sourceTree = "<group>"; };
 		318E80CD207F036B00492CD1 /* OnboardingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCell.swift; sourceTree = "<group>"; };
@@ -111,6 +110,7 @@
 		31FF83F01FCE3BB50046DBFA /* BrandInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandInfoViewController.swift; sourceTree = "<group>"; };
 		4922EFFA5C0DCFF2510E2C97 /* Pods-Ambasity V1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambasity V1.release.xcconfig"; path = "Pods/Target Support Files/Pods-Ambasity V1/Pods-Ambasity V1.release.xcconfig"; sourceTree = "<group>"; };
 		9B9BA3CEF88F3BC0DF4D46D1 /* Pods-Ambasity V1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ambasity V1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Ambasity V1/Pods-Ambasity V1.debug.xcconfig"; sourceTree = "<group>"; };
+		E7CE4F5820B216D7002FCD66 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,7 +184,6 @@
 				310C02E920AB7D92002B4C4B /* BrandInfoCollectionViewCell.swift */,
 				315909231FBE3C6900474A1D /* Main.storyboard */,
 				314C3D8520609E8A00304133 /* MainFeedTableViewCell.swift */,
-				3184ADBD202FB32400EC7200 /* LinksViewController.swift */,
 				310C02EB20ACAC92002B4C4B /* LinksTableViewController.swift */,
 				318185CD1FC08BA4007441FC /* LoginViewController.swift */,
 				3184AD59202E93CB00EC7200 /* PasswordRecoveryViewController.swift */,
@@ -203,6 +202,7 @@
 				318E80CB207F023E00492CD1 /* OnboardingCollectionViewController.swift */,
 				318E80CD207F036B00492CD1 /* OnboardingCell.swift */,
 				313FF7EA206D9DE10065CDC6 /* Settings.storyboard */,
+				E7CE4F5820B216D7002FCD66 /* ChangePasswordViewController.swift */,
 				314E51BD2093AFDF0079AC07 /* PaymentViewController.swift */,
 				31363B7B20838DAB0094D03D /* SettingsTableViewController.swift */,
 				311A95972083ECFF00DB3C53 /* SettingsTableViewCells */,
@@ -453,7 +453,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3184ADBE202FB32400EC7200 /* LinksViewController.swift in Sources */,
 				316A1709203A54EF005EBC64 /* SubmitButton.swift in Sources */,
 				318E80CA207EDB1D00492CD1 /* SignUpCell.swift in Sources */,
 				31FF83F11FCE3BB50046DBFA /* BrandInfoViewController.swift in Sources */,
@@ -466,6 +465,7 @@
 				3151C9C82082952600AD4BB8 /* SignUpViewController.swift in Sources */,
 				311A959920843B1800DB3C53 /* SupportViewController.swift in Sources */,
 				31363B7E208395B00094D03D /* GeneralSettingsTableViewCell.swift in Sources */,
+				E7CE4F5920B216D8002FCD66 /* ChangePasswordViewController.swift in Sources */,
 				3116EA1E1FEB2D50001902B7 /* ProfileViewController.swift in Sources */,
 				31363B7C20838DAB0094D03D /* SettingsTableViewController.swift in Sources */,
 				3184AD5A202E93CB00EC7200 /* PasswordRecoveryViewController.swift in Sources */,
